@@ -1,0 +1,33 @@
+# --- Unity ---
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+sysinfo.txt
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userprefs
+
+# OS
+.DS_Store
+Thumbs.db
+
+# C# solutions (Unity regenerates)
+*.csproj
+*.sln
+*.sln.DotSettings*
+
+# Unity package exports
+*.unitypackage
+
+# Ignore third-party pack (everyone imports locally via Package Manager)
+Assets/VintageLivingRoom3D*/**
