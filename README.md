@@ -34,7 +34,7 @@ If you see missing meshes or pink materials, make sure you’ve imported this pa
 
 ---
 
-## 🔀 Git Workflow
+## Git Workflow
 
 - **avoid** commiting large generated files. `.gitignore` already excludes them.  
 - **Do commit** your scenes, scripts, prefabs, and `.meta` files.  
