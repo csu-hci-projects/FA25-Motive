@@ -29,6 +29,11 @@ Each team member will need to import it locally:
 3. Find **Vintage Living Room 3D Game Pack**  
 4. **Download** (if needed) → **Import**
 
+If you don't see the asset pack in the **My Assets**:
+1. go to this link and add it https://assetstore.unity.com/packages/3d/environments/vintage-living-room-3d-game-pack-314464
+2. open in Unity
+3. once the project is open follow the above steps. It should be in My Assets
+
 If you see missing meshes or pink materials, make sure you’ve imported this pack.  
 (URP users may need to run **Edit → Rendering → Materials → Convert to URP**.)
 
