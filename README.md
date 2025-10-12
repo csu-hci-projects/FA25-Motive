@@ -37,7 +37,7 @@ If you don't see the asset pack in the **My Assets**:
 If you see missing meshes or pink materials, make sure you’ve imported this pack.  
 (URP users may need to run **Edit → Rendering → Materials → Convert to URP**.)
 
-you may also have to mess with the shaders. Mine weren't compatable here is what I did that worked:
+you may also have to mess with the shaders. Mine weren't compatable even after converting to URP. Here is what I did that worked:
 1. In the Project window, go to the pack’s Materials folder (e.g.
 Assets/ZNS3D/Vintage Living Room Game Pack/Materials/).
 2. In the search box above the Project window type: t:Material (to list only materials).
