@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 7c85810af34114ac2950810f1e2b662f
   - enabled: 1
+    path: Assets/Scenes/InviteScene.unity
+    guid: f4b41c14d42bd4076859bd050f3362e0
+  - enabled: 1
     path: Assets/Scenes/ZNS3D/Vintage Living Room Game Pack/Demo/Demo_Scene.unity
     guid: 595372e64ca8f5549b8da2dd680770f3
   m_configObjects:
