@@ -1,8 +1,9 @@
 using UnityEngine;
-using UnityEngine.InputSystem;  
+using UnityEngine.InputSystem;
+using Unity.Netcode;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     [Header("Movement")]
     public float moveSpeed = 6f;
@@ -21,11 +22,25 @@ public class PlayerController : MonoBehaviour
 
     void Awake() => rb = GetComponent<Rigidbody>();
 
-    public void OnMove(InputValue v) => moveInput = v.Get<Vector2>();
-    public void OnJump(InputValue v) { if (v.isPressed) jumpPressed = true; }
+    // Called from PlayerInput "Move" event
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        if (!IsOwner) return;
+        moveInput = ctx.ReadValue<Vector2>();
+    }
+
+    // Called from PlayerInput "Jump" event
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        if (!IsOwner) return;
+        if (ctx.performed)
+            jumpPressed = true;
+    }
 
     void Update()
     {
+        if (!IsOwner) return;
+
         if (grounded && jumpPressed)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
@@ -35,6 +50,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!IsOwner) return;
+
         grounded = CheckGrounded();
 
         var cam = Camera.main ? Camera.main.transform : null;
@@ -53,7 +70,8 @@ public class PlayerController : MonoBehaviour
 
     bool CheckGrounded()
     {
-        if (Physics.SphereCast(transform.position, 0.49f, Vector3.down, out var hit, groundRay, groundMask))
+        if (Physics.SphereCast(transform.position, 0.49f, Vector3.down,
+                               out var hit, groundRay, groundMask))
         {
             float angle = Vector3.Angle(hit.normal, Vector3.up);
             return angle <= maxSlopeAngle;
