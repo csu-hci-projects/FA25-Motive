@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 120aed9f332e4764b8b65ed65a133da0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/table/brownWoodTable.prefab
+  uploadId: 594439

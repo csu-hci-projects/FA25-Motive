@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 17ffb8dbe93fb8a41908df17060e9b8f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/table/squareLegsTable.prefab
+  uploadId: 594439

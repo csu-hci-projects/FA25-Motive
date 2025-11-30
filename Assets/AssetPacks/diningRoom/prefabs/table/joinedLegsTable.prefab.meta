@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6882bbace9f324b4f9c6b516bc4fc022
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/table/joinedLegsTable.prefab
+  uploadId: 594439

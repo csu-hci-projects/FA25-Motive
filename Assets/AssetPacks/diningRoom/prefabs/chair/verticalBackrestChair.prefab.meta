@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4ab548f767900d24d8cb6d7df29752fa
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/chair/verticalBackrestChair.prefab
+  uploadId: 594439

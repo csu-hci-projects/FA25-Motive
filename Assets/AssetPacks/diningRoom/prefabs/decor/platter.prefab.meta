@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 960a670d0a330d24cbebb29138651112
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/decor/platter.prefab
+  uploadId: 594439

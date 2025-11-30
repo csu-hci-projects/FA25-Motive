@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 959e6b482eeb69e41afd67d3bf9dce9f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/decor/candlestick.prefab
+  uploadId: 594439

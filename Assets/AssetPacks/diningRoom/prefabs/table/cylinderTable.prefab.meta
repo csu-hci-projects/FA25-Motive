@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9429a451402672d4c8443be995b458d9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/table/cylinderTable.prefab
+  uploadId: 594439

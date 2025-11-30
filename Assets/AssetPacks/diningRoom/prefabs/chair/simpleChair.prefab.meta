@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e9597276eed06e247932fd366097a205
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/chair/simpleChair.prefab
+  uploadId: 594439

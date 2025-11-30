@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4fcb62cf4bbae194fb778e1b05880af2
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199435
+  packageName: Polygon Dining Room
+  packageVersion: 2.2
+  assetPath: Assets/diningRoom/diningRoom/prefabs/table/circleTable.prefab
+  uploadId: 594439
