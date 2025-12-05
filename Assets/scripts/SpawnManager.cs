@@ -1,9 +1,12 @@
 using UnityEngine;
 using Unity.Netcode;
+using System.Collections.Generic;
 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private CharacterManager characterManager;
+    private List<ulong> connectedClients = new List<ulong>();
 
     private int _nextIndex = 0;
     private NetworkManager _nm;
@@ -44,6 +47,11 @@ public class SpawnManager : MonoBehaviour
 
         if (!_nm.ConnectedClients.TryGetValue(clientId, out var client))
             return;
+        
+        if (!connectedClients.Contains(clientId))
+        {
+            connectedClients.Add(clientId);
+        }
 
         var playerObject = client.PlayerObject;
         if (playerObject == null)
@@ -69,5 +77,34 @@ public class SpawnManager : MonoBehaviour
         var spawn = spawnPoints[_nextIndex % spawnPoints.Length];
         _nextIndex++;
         return spawn;
+    }
+
+    public void StartGame()
+    {
+        if (!_nm.IsServer)
+        {
+            return;
+        }
+        if (connectedClients.Count == 0)
+        {
+            return;
+        }
+
+        int murdererIndex = Random.Range(0, connectedClients.Count);
+        ulong murdererClientID = connectedClients[murdererIndex];
+
+        foreach (ulong clientId in connectedClients)
+        {
+            var client = _nm.ConnectedClients[clientId];
+            var playerObj = client.PlayerObject;
+            string assignedCharacter = characterManager.AssignCharacter();
+
+            var pc = playerObj.GetComponent<PlayerCharacter>();
+            bool isMurderer = clientId == murdererClientID;
+            if (pc != null)
+            {
+                pc.ReceiveCharacterClientRpc(assignedCharacter, isMurderer);
+            }
+        }
     }
 }
