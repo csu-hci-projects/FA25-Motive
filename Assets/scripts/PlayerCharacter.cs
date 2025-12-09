@@ -4,31 +4,37 @@ using TMPro;
 
 public class PlayerCharacter : NetworkBehaviour
 {
-
     [ClientRpc]
     public void ReceiveCharacterClientRpc(string name, bool murderer)
     {
+        Debug.Log($"ReceiveCharacterClientRpc on client {OwnerClientId}: " +
+                  $"name='{name}', murderer={murderer}, IsOwner={IsOwner}");
+
         if (!IsOwner)
         {
             return;
         }
+
         TMP_Text uiText = GameObject.Find("CharacterAssignText")?.GetComponent<TMP_Text>();
         if (uiText != null)
         {
-            uiText.text = name;
+            uiText.text = $"Your identity is: {name}";
         }
         else
         {
-            Debug.Log("CharacterAssignText not found!");
+            Debug.LogWarning("CharacterAssignText not found!");
         }
+
         TMP_Text MurderText = GameObject.Find("MurdererAssignText")?.GetComponent<TMP_Text>();
-        if (murderer)
+        if (MurderText != null)
         {
-            MurderText.text = "You are the Murderer!";
+            MurderText.text = murderer
+                ? "You ARE the murderer!"
+                : "You are NOT the murderer";
         }
         else
         {
-            MurderText.text = "You are NOT the murderer";
+            Debug.LogWarning("MurdererAssignText not found!");
         }
     }
 }

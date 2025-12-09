@@ -16,8 +16,7 @@ public class SpawnManager : MonoBehaviour
         _nm = NetworkManager.Singleton;
         if (_nm == null)
         {
-            Debug.LogError("SpawnManager: NetworkManager.Singleton is null in Start. " +
-                           "Is there a NetworkManager in the scene?");
+            Debug.LogError("SpawnManager: NetworkManager.Singleton is null in Start.");
             return;
         }
 
@@ -47,7 +46,7 @@ public class SpawnManager : MonoBehaviour
 
         if (!_nm.ConnectedClients.TryGetValue(clientId, out var client))
             return;
-        
+
         if (!connectedClients.Contains(clientId))
         {
             connectedClients.Add(clientId);
@@ -81,29 +80,47 @@ public class SpawnManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (!_nm.IsServer)
+        Debug.Log("SpawnManager.StartGame called");
+
+        if (_nm == null)
         {
+            Debug.LogError("StartGame: _nm is null");
             return;
         }
+
+        if (!_nm.IsServer)
+        {
+            Debug.Log("StartGame: not server, ignoring");
+            return;
+        }
+
         if (connectedClients.Count == 0)
         {
+            Debug.LogWarning("StartGame: connectedClients is empty");
             return;
         }
 
         int murdererIndex = Random.Range(0, connectedClients.Count);
         ulong murdererClientID = connectedClients[murdererIndex];
+        Debug.Log($"StartGame: murderer is client {murdererClientID}");
 
         foreach (ulong clientId in connectedClients)
         {
             var client = _nm.ConnectedClients[clientId];
             var playerObj = client.PlayerObject;
             string assignedCharacter = characterManager.AssignCharacter();
+            Debug.Log($"StartGame: assigning '{assignedCharacter}' to client {clientId}");
 
             var pc = playerObj.GetComponent<PlayerCharacter>();
             bool isMurderer = clientId == murdererClientID;
             if (pc != null)
             {
+                Debug.Log($"StartGame: calling ReceiveCharacterClientRpc for client {clientId}, isMurderer={isMurderer}");
                 pc.ReceiveCharacterClientRpc(assignedCharacter, isMurderer);
+            }
+            else
+            {
+                Debug.LogWarning($"StartGame: PlayerObject for client {clientId} has no PlayerCharacter");
             }
         }
     }

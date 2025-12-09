@@ -10,18 +10,18 @@ public class CharacterManager : MonoBehaviour
     {
         availableCharacters = new List<string>(characters);
     }
+
     public string AssignCharacter()
     {
-        
         if (characters.Count == 0)
         {
-            Debug.Log("No characters left");
+            Debug.Log("CharacterManager: No characters left");
             return "none";
         }
+
         int randomNum = Random.Range(0, characters.Count);
         string assignedCharacter = characters[randomNum];
         characters.RemoveAt(randomNum);
         return assignedCharacter;
     }
-    
 }
